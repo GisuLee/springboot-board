@@ -37,7 +37,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-oauth2-client')
     compile('org.springframework.session:spring-session-jdbc')              //login 세션저장을 db로
     compile('com.h2database:h2')
-
+    compile('org.mariadb.jdbc:mariadb-java-client')
     testCompile('org.springframework.security:spring-security-test')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile group: 'junit', name: 'junit', version: '4.12'
