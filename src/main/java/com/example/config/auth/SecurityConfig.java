@@ -31,5 +31,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .oauth2Login()                                                  //oauth2 설정진입
             .userInfoEndpoint()                                             //oauth2 로그인 성공 이후 설정
             .userService(customOAuth2UserService);                          //로그인 성공 시 userService 실행
+        http.csrf().disable();
     }
 }
