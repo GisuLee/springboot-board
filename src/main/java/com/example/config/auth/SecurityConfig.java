@@ -21,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
             .authorizeRequests()                                            //권한부여 설정 진입
             .antMatchers("/", "/css/**", "/images/**",
-                    "/js/**", "/h2-console/**", "/profile").permitAll()     //이 주소는 전체 열람 가능
+                    "/js/**", "/h2-console/**", "/profile","/test").permitAll()     //이 주소는 전체 열람 가능
             .antMatchers("/api/v1/**").hasRole(Role.USER.name()) //api는 사용자만 가능
             .anyRequest().authenticated()                                   //나머지 주소는 인증된 사용자들만
             .and()

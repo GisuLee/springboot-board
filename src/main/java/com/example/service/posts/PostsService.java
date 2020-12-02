@@ -25,19 +25,24 @@ public class PostsService {
     }
 
     @Transactional
-    public Long update(Long id, PostsUpdateRequestDto requestDto) {
-        Posts post = postsRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException("해당 게시글이 없습니다 id = " + id));
+    public Long update(Long postId,Long userId, PostsUpdateRequestDto requestDto) {
+        Posts post = postsRepository.findById(postId).orElseThrow(
+                () -> new IllegalArgumentException("해당 게시글이 없습니다 postId = " + postId));
+
+        if(!isEqualWriter(post,userId)){
+            throw new IllegalArgumentException("게시물 작성자가 아닙니다");
+        }
+
 
         post.update(requestDto.getTitle(), requestDto.getContent());
 
-        return id;
+        return postId;
     }
 
     @Transactional
-    public PostsResponseDto findById(Long id){
-        Posts entity = postsRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException("해당 게시글이 없습니다 id = " + id));
+    public PostsResponseDto findById(Long postId){
+        Posts entity = postsRepository.findById(postId).orElseThrow(
+                () -> new IllegalArgumentException("해당 게시글이 없습니다 postId = " + postId));
 
         return new PostsResponseDto(entity);
     }
@@ -50,11 +55,20 @@ public class PostsService {
     }
 
     @Transactional
-    public void delete(Long id){
-        Posts posts = postsRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id)
+    public void delete(Long postId, Long userId){
+        Posts posts = postsRepository.findById(postId).orElseThrow(
+                () -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + postId)
         );
+
+        if(!isEqualWriter(posts,userId)){
+            throw new IllegalArgumentException("Not Matched Writer to SessionUser");
+        }
 
         postsRepository.delete(posts);
     }
+
+    // Post 작성자와 접속user Id가 같은지
+   private boolean isEqualWriter(Posts posts, Long userId){
+        return userId.equals(posts.getWriter().getId());
+   }
 }
