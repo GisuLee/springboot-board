@@ -20,8 +20,9 @@ public class PostsApiController {
     private final PostsService postsService;
 
     @GetMapping("/api/v1/posts")
-    public List<PostsListResponseDto> getList(){
-       return postsService.findAllDesc();
+    public List<PostsListResponseDto> getList(@LoginUser SessionUser user){
+
+        return postsService.findAllDesc();
     }
 
     @PostMapping("/api/v1/posts")
