@@ -37,13 +37,10 @@ var main = {
        },
 
     save : function () {
-
-        var userString = $('#user').val();
         var data = {
             title: $('#title').val(),
             author: $('#author').val(),
             content: $('#content').val(),
-            writer : JSON.parse(userString)
         };
 
         $.ajax({
@@ -60,18 +57,16 @@ var main = {
         });
     },
     update : function () {
-        var userString = $('#user').val();
         var data = {
             title: $('#title').val(),
             content: $('#content').val(),
-            sessionUser: JSON.parse(userString)
         };
 
-        var id = $('#id').val();
+        var postId = $('#id').val();
 
         $.ajax({
             type: 'PUT',
-            url: '/api/v1/posts/'+id,
+            url: '/api/v1/posts/'+postId,
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
@@ -83,12 +78,10 @@ var main = {
         });
     },
     delete : function () {
-        var id = $('#id').val();
-        var userString = $('#user').val();
-        var data = JSON.parse(userString);
+        var postId = $('#id').val();
         $.ajax({
             type: 'DELETE',
-            url: '/api/v1/posts/'+id,
+            url: '/api/v1/posts/'+postId,
             dataType: 'json',
             contentType:'application/json; charset=utf-8'
         }).done(function() {

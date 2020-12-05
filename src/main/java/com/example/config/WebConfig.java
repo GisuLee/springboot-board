@@ -24,6 +24,7 @@ public class WebConfig implements WebMvcConfigurer {
     //모든 도메인에 대해 모든 path CORS 허용 설정
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**");
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:8081");
     }
 }

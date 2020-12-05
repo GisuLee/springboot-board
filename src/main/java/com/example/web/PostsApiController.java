@@ -12,7 +12,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 @RequiredArgsConstructor
 @RestController
 public class PostsApiController {
@@ -20,30 +19,29 @@ public class PostsApiController {
     private final PostsService postsService;
 
     @GetMapping("/api/v1/posts")
-    public List<PostsListResponseDto> getList(@LoginUser SessionUser user){
-
+    public List<PostsListResponseDto> getList(){
         return postsService.findAllDesc();
     }
 
     @PostMapping("/api/v1/posts")
-    public Long save(@RequestBody PostsSaveRequestDto requestDto){
-        return postsService.save(requestDto);
+    public Long save(@RequestBody PostsSaveRequestDto requestDto, @LoginUser SessionUser user){
+        return postsService.save(requestDto, user.getEmail());
     }
 
-    @PutMapping("/api/v1/posts/{id}")
-    public Long update(@PathVariable Long id, @LoginUser SessionUser user, @RequestBody PostsUpdateRequestDto requestDto){
-        return postsService.update(id, user.getId(), requestDto);
+    @PutMapping("/api/v1/posts/{postId}")
+    public Long update(@PathVariable Long postId, @LoginUser SessionUser user, @RequestBody PostsUpdateRequestDto requestDto){
+        return postsService.update(postId, user.getEmail(), requestDto);
     }
 
-    @GetMapping("/api/v1/posts/{id}")
-    public PostsResponseDto findById(@PathVariable Long id){
-        return postsService.findById(id);
+    @GetMapping("/api/v1/posts/{postId}")
+    public PostsResponseDto findById(@PathVariable Long postId){
+        System.out.println("findByid:" + postId);
+        return postsService.findById(postId);
     }
 
-    @DeleteMapping("/api/v1/posts/{id}")
-    public Long delete(@PathVariable Long id, @LoginUser SessionUser user){
-        System.out.println("dddd" + user.getId());
-        postsService.delete(id,user.getId());
-        return id;
+    @DeleteMapping("/api/v1/posts/{postId}")
+    public Long delete(@PathVariable Long postId, @LoginUser SessionUser user){
+        postsService.delete(postId,user.getEmail());
+        return postId;
     }
 }

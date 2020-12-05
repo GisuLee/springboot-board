@@ -12,16 +12,14 @@ public class PostsSaveRequestDto {
     private String title;
     private String content;
     private String author;
-    private User writer;
 
     @Builder
-    public PostsSaveRequestDto(String title, String content, String author, User writer){
+    public PostsSaveRequestDto(String title, String content, String author){
         this.title = title;
         this.content = content;
         this.author = author;
-        this.writer = writer;
     }
-    public Posts toEntity() {
+    public Posts toEntity(User writer) {
         return Posts.builder()
                 .title(title)
                 .content(content)

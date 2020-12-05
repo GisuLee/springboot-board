@@ -1,10 +1,15 @@
 package com.example.config.auth;
 
 
+import com.example.domain.user.Role;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @RequiredArgsConstructor
 @EnableWebSecurity
@@ -21,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()                                            //권한부여 설정 진입
             .antMatchers("/", "/css/**", "/images/**",
                     "/js/**", "/h2-console/**", "/profile").permitAll()     //이 주소는 전체 열람 가능
-            //.antMatchers("/api/v1/**").hasRole(Role.USER.name()) //api는 사용자만 가능
+            .antMatchers("/api/v1/**").hasRole(Role.USER.name()) //api는 사용자만 가능
             .anyRequest().permitAll()                                   //나머지 주소는 인증된 사용자들만
             .and()
             .logout()                                                       //로그아웃 설정 진입점
@@ -30,6 +35,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .oauth2Login()                                                  //oauth2 설정진입
             .userInfoEndpoint()                                             //oauth2 로그인 성공 이후 설정
             .userService(customOAuth2UserService);                          //로그인 성공 시 userService 실행
+    }
+    /**
+     * cors를 허용하고 싶은 도메인을 추가하면 된다.
+     */
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        corsConfiguration.addAllowedOrigin("http://localhost:8081");
+        corsConfiguration.addAllowedHeader("*");
+        corsConfiguration.addAllowedMethod("*");
+        corsConfiguration.setAllowCredentials(true);
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", corsConfiguration);
+        return source;
     }
 
 }
