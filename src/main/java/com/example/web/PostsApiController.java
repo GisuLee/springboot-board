@@ -25,6 +25,8 @@ public class PostsApiController {
 
     @PostMapping("/api/v1/posts")
     public Long save(@RequestBody PostsSaveRequestDto requestDto, @LoginUser SessionUser user){
+        System.out.println("dddddddd");
+        System.out.println(user);
         return postsService.save(requestDto, user.getEmail());
     }
 
@@ -35,7 +37,6 @@ public class PostsApiController {
 
     @GetMapping("/api/v1/posts/{postId}")
     public PostsResponseDto findById(@PathVariable Long postId){
-        System.out.println("findByid:" + postId);
         return postsService.findById(postId);
     }
 
