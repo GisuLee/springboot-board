@@ -8,6 +8,7 @@ import com.example.domain.user.User;
 import com.example.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
@@ -24,7 +25,7 @@ public class UserApiController {
         return user;
     }
 
-    @GetMapping("/api/v1/logout")
+    @PostMapping("/api/v1/logout")
     public void logout(){
         httpSession.setAttribute("sessionUser",null);
     }
@@ -34,7 +35,7 @@ public class UserApiController {
         User build = User.builder()
                 .email("px201226@gmail.com" + String.valueOf((int)(Math.random()*10000)))
                 .name("이기수")
-                .picture("picture")
+                .picture("https://lh5.googleusercontent.com/-2QXdr8wesbM/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucnb024lRD57ypepPkcphVu_7loiBQ/s96-c/photo.jpg")
                 .role(Role.USER)
                 .build();
         userRepository.save(build);
