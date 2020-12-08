@@ -4,12 +4,6 @@
 
 > Spring Security 와 OAuth2 를 적용하고, Google OAuth API를 사용하여 회원가입 및 로그인 기능과 JPA로 게시판을 구현한다. 또, REST API 통해 Vue.js로 만든 SPA와 통신하여 웹사이트를 구축한다.
 
-![readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled.png](readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled.png)
-
-![readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled%201.png](readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled%201.png)
-
-![readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled%202.png](readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled%202.png)
-
 ## Deploy Flow
 
 ![readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled%203.png](readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled%203.png)
@@ -88,6 +82,13 @@ java -jar \
 ## Vue.js Client Build
 npm run build
 ```
+
+## Screenshot
+![readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled.png](readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled.png)
+
+![readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled%201.png](readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled%201.png)
+
+![readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled%202.png](readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled%202.png)
 
 ## Note
 
