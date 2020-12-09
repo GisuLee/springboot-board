@@ -1,14 +1,12 @@
-# SpringBoot와 Vue.js를 이용한 게시판 제작
+# readme
 
 ## Introduction
 
 > Spring Security 와 OAuth2 를 적용하고, Google OAuth API를 사용하여 회원가입 및 로그인 기능과 JPA로 게시판을 구현한다. 또, REST API 통해 Vue.js로 만든 SPA와 통신하여 웹사이트를 구축한다.
 
-
 ## Deploy Flow
 
-![readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled%203.png](readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled%203.png)
-
+![readme/Untitled.png](readme/Untitled.png)
 
 ## Skill
 
@@ -33,7 +31,6 @@
 
 - Travic-CI
 - AWS CodeDeploy
-
 
 ## Description
 
@@ -65,7 +62,6 @@
 - 무중단 배포를 하기 위한 profiles 설정 및 스크립트 작성
 - 배포 테스트
 
-
 ## Installation
 
 ```jsx
@@ -87,13 +83,15 @@ java -jar \
 npm run build
 ```
 
-
 ## Screenshot
-![readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled.png](readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled.png)
 
-![readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled%201.png](readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled%201.png)
+![readme/Untitled%201.png](readme/Untitled%201.png)
 
-![readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled%202.png](readme%2034d98d0f128244ea9ffe4d4a3ab1c60d/Untitled%202.png)
+![readme/Untitled%202.png](readme/Untitled%202.png)
+
+![readme/Untitled%203.png](readme/Untitled%203.png)
+
+![readme/Untitled%204.png](readme/Untitled%204.png)
 
 ## Note
 
