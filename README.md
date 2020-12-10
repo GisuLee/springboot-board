@@ -6,7 +6,7 @@
 
 ## Deploy Flow
 
-![readme/Untitled.png](readme/Untitled.png)
+![readme/Untitled.png](https://github.com/GisuLee/springboot-board/blob/master/readme/Untitled.png?raw=true)
 
 ## Skill
 
@@ -85,13 +85,13 @@ npm run build
 
 ## Screenshot
 
-![readme/Untitled%201.png](readme/Untitled%201.png)
+![readme/Untitled%201.png](https://github.com/GisuLee/springboot-board/blob/master/readme/Untitled%201.png?raw=true)
 
-![readme/Untitled%202.png](readme/Untitled%202.png)
+![readme/Untitled%202.png](https://github.com/GisuLee/springboot-board/blob/master/readme/Untitled%202.png?raw=true)
 
-![readme/Untitled%203.png](readme/Untitled%203.png)
+![readme/Untitled%203.png](https://github.com/GisuLee/springboot-board/blob/master/readme/Untitled%203.png?raw=true)
 
-![readme/Untitled%204.png](readme/Untitled%204.png)
+![readme/Untitled%204.png](https://github.com/GisuLee/springboot-board/blob/master/readme/Untitled%204.png?raw=true)
 
 ## Note
 
